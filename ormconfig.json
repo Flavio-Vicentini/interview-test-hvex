@@ -1,0 +1,7 @@
+{    
+    "type": "mongodb",
+    "host": "localhost",
+    "port": 27017,
+    "database": "users_hvex",
+    "entities": ["./src/modules/*/entities/*.ts"]
+}
