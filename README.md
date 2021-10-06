@@ -35,5 +35,7 @@ Route         | Method      |  Body (JSON)                              |      F
 /users/:id    |  DELETE     | No body                                   |     Delete user by Id.
 
 :heavy_check_mark: *Para que a aplicação funcione corretamento o servidor do mongodb deve estar rodando;*
+###
 :heavy_check_mark: *O campo last_access deve ser inserido no formato DD/MM/YYYY;*
+###
 :heavy_check_mark: *Para a rota de update todos os campos devem ser preenchidos;*
