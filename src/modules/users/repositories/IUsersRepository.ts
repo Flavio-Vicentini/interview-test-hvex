@@ -1,14 +1,18 @@
-import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
-import { User } from "../entities/User";
+import { IUpdateUserDTO } from "../dtos/IUpdateUserDTO";
+import { IUser } from "../model/User";
 
 interface IUsersRepository {
-  create({
+  create({ name, username, password, last_access }: IUser): Promise<void>;
+  findUserById(_id: string): Promise<IUser>;
+  findUserByIdAndUpdate({
+    _id,
     name,
-    nickname,
+    username,
     password,
     last_access,
-  }: ICreateUserDTO): Promise<void>;
-  findUserById(_id: string): Promise<User>;
+  }: IUpdateUserDTO): Promise<void>;
+  deleteUserById(_id: string): Promise<void>;
+  findUserByUsername(username: string): Promise<IUser>;
 }
 
 export { IUsersRepository };

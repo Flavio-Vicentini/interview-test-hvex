@@ -1,17 +1,12 @@
 import express, { Request, Response, NextFunction } from "express";
 
 import "reflect-metadata";
-import { CreateConnectionDB } from "./database";
+import "express-async-errors";
 import "./shared/container";
+
 import { AppError } from "./errors/AppError";
 import { router } from "./routes";
-import "express-async-errors";
-
-CreateConnectionDB()
-  .then(() => {
-    console.log("DB Connected!");
-  })
-  .catch((error) => console.log("Database Error", error));
+import "./database";
 
 const app = express();
 

@@ -1,40 +1,49 @@
-import {
-  getMongoRepository,
-  MongoRepository,
-  getMongoManager,
-  MongoEntityManager,
-  ObjectID,
-} from "typeorm";
-
-import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
-import { User } from "../entities/User";
+import { IUpdateUserDTO } from "../dtos/IUpdateUserDTO";
+import { IUser, UserModel } from "../model/User";
 import { IUsersRepository } from "./IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
-  private repository: MongoRepository<User>;
-  private manager: MongoEntityManager;
-  constructor() {
-    // this.repository = getMongoRepository(User);
-    this.manager = getMongoManager();
-  }
-
   async create({
     name,
-    nickname,
+    username,
     password,
     last_access,
-  }: ICreateUserDTO): Promise<void> {
-    const user = this.repository.create({
+  }: IUser): Promise<void> {
+    const user = new UserModel({
       name,
-      nickname,
+      username,
       password,
       last_access,
     });
-    await this.repository.save(user);
+    await user.save();
   }
 
-  async findUserById(_id: string): Promise<User> {
-    const user = await this.manager.findOne(User, { _id });
+  async findUserById(_id: string): Promise<IUser> {
+    const user = await UserModel.findById(_id);
+    return user;
+  }
+
+  async findUserByIdAndUpdate({
+    _id,
+    name,
+    username,
+    password,
+    last_access,
+  }: IUpdateUserDTO): Promise<void> {
+    await UserModel.findByIdAndUpdate(_id, {
+      name,
+      username,
+      password,
+      last_access,
+    });
+  }
+
+  async deleteUserById(_id: string): Promise<void> {
+    await UserModel.findByIdAndDelete(_id);
+  }
+
+  async findUserByUsername(username: string): Promise<IUser> {
+    const user = await UserModel.findOne({ username });
     return user;
   }
 }
