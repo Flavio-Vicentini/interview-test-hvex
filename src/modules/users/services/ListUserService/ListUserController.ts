@@ -1,6 +1,5 @@
 import { Response, Request } from "express";
 import { container } from "tsyringe";
-import { ObjectID } from "typeorm";
 
 import { ListUserService } from "./ListUserService";
 

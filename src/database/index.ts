@@ -1,6 +1,3 @@
-import { createConnection, Connection } from "typeorm";
+import mongoose from "mongoose";
 
-const CreateConnectionDB = async (): Promise<Connection | void> => {
-  await createConnection();
-};
-export { CreateConnectionDB };
+mongoose.connect("mongodb://localhost:27017/users_hvex");
