@@ -2,7 +2,7 @@
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/),[MongoDB](https://www.mongodb.com/pt-br),[Yarn](https://classic.yarnpkg.com/lang/en/). 
-Além disto, é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) e um gerenciador de banco de dados como o [MongoDB Compass](https://www.mongodb.com/pt-br/products/compass) para visualizar e manipular os dados.
+Além disto, você deve ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) e um gerenciador de banco de dados como o [MongoDB Compass](https://www.mongodb.com/pt-br/products/compass) para visualizar os dados.
 
 ### 🎲 Rodando a aplicação
 
